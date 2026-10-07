@@ -4,10 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" :"concurrently -n client,server \"pnpm --prefix client dev\" \"pnpm --prefix server dev\"",
+    "dev:client": "pnpm --prefix client dev",
+    "dev:server": "pnpm --prefix server dev",
+    "install": "concurrently \"pnpm --prefix client install\" \"pnpm --prefix server install\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.22.0",
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  }
 }
